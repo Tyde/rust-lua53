@@ -60,7 +60,7 @@ fn build_lua(tooling: &gcc::Tool, source: &Path, build: &Path) -> io::Result<()>
         command.env(key, val);
     }
     command.current_dir(build)
-        .env("VPATH", source.to_string_lossy().replace("\\", "/"))
+        .env("VPATH", source)
         .env("MAKE", make)
         .env("CC", cc)
         .env("MYCFLAGS", cflags)
